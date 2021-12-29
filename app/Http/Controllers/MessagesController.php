@@ -130,7 +130,13 @@ class MessagesController extends Controller
      */
     public function show(Message $message)
     {
-        dd($message);
+        // フラッシュメッセージをnullにセット
+        $flash_message = null;
+        // エラーメッセージをnullにセット
+        $errors = null;
+        
+        // 連想配列のデータを3セット（viewで引き出すキーワードと値のセット）引き連れてviewを呼び出す
+        return view('messages.show', compact('message', 'flash_message', 'errors'));
     }
 
     /**
